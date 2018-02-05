@@ -25,7 +25,7 @@ namespace WebAppTest.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<Categories> Categories { get; set; }
     }
 }
