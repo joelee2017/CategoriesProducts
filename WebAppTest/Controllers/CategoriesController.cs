@@ -59,7 +59,7 @@ namespace WebAppTest.Controllers
         }
 
         // GET: Categories/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id)//int? 可以沒有值 Nullable<int>對應DB沒有值的欄位
         {
             if (id == null)
             {
@@ -80,7 +80,7 @@ namespace WebAppTest.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "CategoryID,CategoryName,Description,Picture")] Categories categories)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid)//資料驗證
             {
                 db.Entry(categories).State = EntityState.Modified;
                 db.SaveChanges();

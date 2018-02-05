@@ -9,7 +9,7 @@ namespace WebAppTest.Models
         //[Required(ErrorMessage ="產品名稱未填寫!")]
         [Required(ErrorMessageResourceName = "ProductNameEmpty", ErrorMessageResourceType =typeof(Resource1))]
         
-        [StringLength(40,ErrorMessage = "{0}最長{1}")]
+        [StringLength(40,ErrorMessage = "{0}最長{1}")]//字元最長40
 
         //[Display(Name = "產品名稱")]
         [Display(Name = "ProductName", ResourceType =typeof(Resource1))]
@@ -20,7 +20,7 @@ namespace WebAppTest.Models
         public Nullable<decimal> UnitPrice { get; set; }
 
         [Display(Name ="訂購單位")]
-        [Range(1,100,ErrorMessage ="{0}訂購單位必須介於{1}~{2}")]
+        [Range(1,100,ErrorMessage ="{0}訂購單位必須介於{1}~{2}")]//Range範圍
         public Nullable<short> UnitsOnOrder { get; set; }
     }
 }
