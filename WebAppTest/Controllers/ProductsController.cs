@@ -18,7 +18,7 @@ namespace WebAppTest.Controllers
         public ActionResult Index()
         {
             var products = db.Products.Include(p => p.Categories);
-            return View(products.ToList());
+            return View(products);
         }
 
         // GET: Products/Details/5
