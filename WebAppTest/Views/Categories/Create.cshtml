@@ -7,7 +7,7 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Categories",FormMethod.Post,new {@enctype="multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -34,8 +34,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Picture, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Picture, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Picture, "", new { @class = "text-danger" })
+                <img id="imgPreview" src="~/image/sticker.png" style="width:320px;height:240px;" />
+                <input id="File1" type="file" name="File1" accept="image/*" />
             </div>
         </div>
 
@@ -53,4 +53,19 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $("#imgPreview").attr("src", e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#File1").change(function () {
+        readURL(this);
+    })
+    </script>
 }
