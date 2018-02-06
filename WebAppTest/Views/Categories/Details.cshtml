@@ -31,8 +31,7 @@
         </dt>
 
         <dd>
-            <img src="@Url.Action("ShowPicture","Categories",new {id=Model.CategoryID })" title="@Html.DisplayFor(model => model.CategoryName)" />
-            
+           @Html.Partial("_ShowPhotoParital")            
         </dd>
 
     </dl>

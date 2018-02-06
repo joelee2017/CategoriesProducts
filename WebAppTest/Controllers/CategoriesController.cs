@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -82,6 +83,16 @@ namespace WebAppTest.Controllers
         {
             if (ModelState.IsValid)//資料驗證
             {
+                if(Request.Files["File1"] != null)
+                {
+                    byte[] data = null;
+                    using(BinaryReader br =new BinaryReader(Request.Files["File1"].InputStream))
+                    {
+                        data = br.ReadBytes(Request.Files["File1"].ContentLength);
+                        categories.Picture = data;
+                    }
+                }
+
                 db.Entry(categories).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

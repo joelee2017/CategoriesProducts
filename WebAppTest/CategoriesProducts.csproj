@@ -247,6 +247,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="image\sticker.png" />
     <Content Include="Models\NorthWindModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>NorthWindModel.edmx</DependentUpon>
@@ -325,6 +326,7 @@
     <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Categories\_ShowPhotoParital.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
