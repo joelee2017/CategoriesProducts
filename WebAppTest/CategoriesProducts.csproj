@@ -263,6 +263,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\site.js" />
     <Content Include="WebForm1.aspx" />
     <EntityDeploy Include="Models\NorthWindModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

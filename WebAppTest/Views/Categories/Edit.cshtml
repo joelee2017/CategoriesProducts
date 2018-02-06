@@ -56,4 +56,10 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+<script src="~/Scripts/site.js"></script>
+<script> 
+    $("#File1").change(function () {
+        readURL(this,$("#File1").prev());
+    })
+</script>
 }

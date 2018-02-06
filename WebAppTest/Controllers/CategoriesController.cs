@@ -51,12 +51,27 @@ namespace WebAppTest.Controllers
         {
             if (ModelState.IsValid)
             {
+                ReadFileContent(categories);
+
                 db.Categories.Add(categories);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(categories);
+        }
+
+        private void ReadFileContent(Categories categories)
+        {
+            if (Request.Files["File1"] != null)
+            {
+                byte[] data = null;
+                using (BinaryReader br = new BinaryReader(Request.Files["File1"].InputStream))
+                {
+                    data = br.ReadBytes(Request.Files["File1"].ContentLength);
+                    categories.Picture = data;
+                }
+            }
         }
 
         // GET: Categories/Edit/5
@@ -83,15 +98,7 @@ namespace WebAppTest.Controllers
         {
             if (ModelState.IsValid)//資料驗證
             {
-                if(Request.Files["File1"] != null)
-                {
-                    byte[] data = null;
-                    using(BinaryReader br =new BinaryReader(Request.Files["File1"].InputStream))
-                    {
-                        data = br.ReadBytes(Request.Files["File1"].ContentLength);
-                        categories.Picture = data;
-                    }
-                }
+                ReadFileContent(categories);
 
                 db.Entry(categories).State = EntityState.Modified;
                 db.SaveChanges();
