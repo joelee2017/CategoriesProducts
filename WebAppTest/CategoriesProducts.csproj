@@ -196,10 +196,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\Order_DetailsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Metadatas\NorthwindEntities.cs" />
     <Compile Include="Metadatas\OrderMetadata.cs" />
     <Compile Include="Metadatas\Orders.cs" />
     <Compile Include="Metadatas\Products.cs" />
@@ -226,6 +228,9 @@
       <DependentUpon>NorthWindModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Orders.cs">
+      <DependentUpon>NorthWindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order_Details.cs">
       <DependentUpon>NorthWindModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Products.cs">
@@ -339,6 +344,11 @@
     <Content Include="Views\Orders\Details.cshtml" />
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Order_Details\Create.cshtml" />
+    <Content Include="Views\Order_Details\Delete.cshtml" />
+    <Content Include="Views\Order_Details\Details.cshtml" />
+    <Content Include="Views\Order_Details\Edit.cshtml" />
+    <Content Include="Views\Order_Details\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

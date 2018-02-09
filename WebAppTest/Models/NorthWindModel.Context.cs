@@ -28,5 +28,6 @@ namespace WebAppTest.Models
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<Order_Details> Order_Details { get; set; }
     }
 }

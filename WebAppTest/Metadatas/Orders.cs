@@ -7,6 +7,7 @@ using System.Web;
 namespace WebAppTest.Models
 {
     [MetadataType(typeof(OrderMetadata))]
+    //partial擴充源自EF Orders Model 屬性
     public partial class Orders : IValidatableObject//利用IValidatableObject介面實作自訂驗証
     {
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
