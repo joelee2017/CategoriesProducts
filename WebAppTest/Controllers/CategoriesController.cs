@@ -49,6 +49,11 @@ namespace WebAppTest.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CategoryID,CategoryName,Description,Picture")] Categories categories)
         {
+            if (categories.Description.Length < 10)
+            {
+                ModelState.AddModelError("Description", "產品種類說明過於簡略");
+            }
+
             if (ModelState.IsValid)
             {
                 ReadFileContent(categories);
@@ -57,7 +62,6 @@ namespace WebAppTest.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(categories);
         }
 
